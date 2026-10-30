@@ -65,8 +65,8 @@ def from_bclconvert(cls, runfolder_path, parser_config):
                 for row in quality_metrics
                 if row["Lane"] == str(lane + 1)
             ),
-            "yield_undetermined": next(
-                int(row["Yield"]) * reads_pair_count
+            "yield_undetermined": sum(
+                int(row["Yield"])
                 for row in quality_metrics
                 if (
                     row["Lane"] == str(lane + 1)
@@ -98,7 +98,6 @@ def from_bclconvert(cls, runfolder_path, parser_config):
                     "sample_id": (
                         sample_summary := index_summary.at(lane).at(sample_no)
                     ).sample_id(),
-                    "cluster_count": sample_summary.cluster_count(),
                     "reads_pf": int(get_demux_row(lane, sample_summary)["# Reads"]),
                     "percent_of_lane": round(float(
                             get_demux_row(lane, sample_summary)["% Reads"])

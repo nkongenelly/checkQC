@@ -15,8 +15,8 @@ def reads_per_sample(
         or error_threshold < warning_threshold
     )
 
-    def _qualify_error(lane, number_of_samples, sample_id, cluster_count):
-        sample_reads = cluster_count / 10**6
+    def _qualify_error(lane, number_of_samples, sample_id, reads_pf):
+        sample_reads = reads_pf / 10**6
         data = {
             "lane": lane,
             "number_of_samples": number_of_samples,
