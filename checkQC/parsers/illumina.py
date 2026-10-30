@@ -48,12 +48,6 @@ def from_bclconvert(cls, runfolder_path, parser_config):
                 if sample_stat["Lane"] == str(lane + 1) and
                 sample_stat["SampleID"] == sample_summary.sample_id())
 
-    # paired-end data has reads_sum == 2
-    reads_pair_count = sum([
-        int(not summary.at(i_read).read().is_index()) 
-        for i_read in range(summary.size())
-        ]
-    )
     sequencing_metrics = {
         lane + 1: {
             "total_reads_pf": summary.at(0).at(lane).reads_pf(),
