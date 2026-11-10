@@ -25,7 +25,7 @@ def test_read_interop_summary(runfolder_path):
     assert total_reads_pf == 532464327
 
     sample_id = index_summary.at(0).at(0).sample_id()
-    assert sample_id == "Sample_14574-Qiagen-IndexSet1-SP-Lane1"
+    assert sample_id == "14574-qiagen-indexset1-sp-lane1"
 
 
 def test_read_quality_metrics(runfolder_path):
@@ -36,13 +36,13 @@ def test_read_quality_metrics(runfolder_path):
     assert quality_metrics[0] == {
         '% Q30': '0.96',
         'Lane': '1',
-        'Mean Quality Score (PF)': '36.37',
-        'QualityScoreSum': '12987964',
+        'Mean Quality Score (PF)': '36.43',
+        'QualityScoreSum': '2066796745',
         'ReadNumber': '1',
-        'SampleID': 'Sample_14574-Qiagen-IndexSet1-SP-Lane1',
-        'Sample_Project': 'AB-1234',
-        'Yield': '357120',
-        'YieldQ30': '342989',
+        'SampleID': '14574-qiagen-indexset1-sp-lane1',
+        # 'Sample_Project': 'AB-1234',
+        'Yield': '56739672',
+        'YieldQ30': '54699221',
         'index': 'GAACTGAGCG',
         'index2': 'TCGTGGAGCG',
     }
@@ -52,28 +52,28 @@ def test_read_to_unknown_barcodes(runfolder_path):
     top_unknown_barcodes = _read_demultiplexing_metrics(
             runfolder_path / "Reports/Top_Unknown_Barcodes.csv")
 
-    assert len(top_unknown_barcodes) == 2084
+    assert len(top_unknown_barcodes) == 2000
     assert top_unknown_barcodes[:3] == [
         {
-            '# Reads': '12857',
-            '% of All Reads': '0.003775',
-            '% of Unknown Barcodes': '0.003796',
+            '# Reads': '2008558',
+            '% of All Reads': '0.003772',
+            '% of Unknown Barcodes': '0.003787',
             'Lane': '1',
             'index': 'ATATCTGCTT',
             'index2': 'TAGACAATCT',
         },
         {
-            '# Reads': '12406',
-            '% of All Reads': '0.003643',
-            '% of Unknown Barcodes': '0.003663',
+            '# Reads': '1934726',
+            '% of All Reads': '0.003634',
+            '% of Unknown Barcodes': '0.003648',
             'Lane': '1',
             'index': 'CACCTCTCTT',
             'index2': 'CTCGACTCCT',
         },
         {
-            '# Reads': '12177',
-            '% of All Reads': '0.003575',
-            '% of Unknown Barcodes': '0.003595',
+            '# Reads': '1905527',
+            '% of All Reads': '0.003579',
+            '% of Unknown Barcodes': '0.003593',
             'Lane': '1',
             'index': 'ATGTAACGTT',
             'index2': 'ACGATTGCTG',
@@ -105,8 +105,9 @@ def test_read_samplesheet(runfolder_path):
         'index': 'GAACTGAGCG',
         'index2': 'TCGTGGAGCG',
         'lane': 1,
-        'sample_id': 'Sample_14574-Qiagen-IndexSet1-SP-Lane1',
+        'sample_id': '14574-qiagen-indexset1-sp-lane1',
         'sample_project': 'AB-1234',
         "overridecycles": "Y36;I10;I10",
         'custom_description': 'LIBRARY_NAME:test',
+        'custom_sample_name': '14574-qiagen-indexset1-sp-lane1',
     }

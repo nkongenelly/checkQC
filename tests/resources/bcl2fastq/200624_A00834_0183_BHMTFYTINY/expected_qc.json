@@ -1,0 +1,113 @@
+{
+    "exit_status": 1,
+    "ReadsPerSampleHandler": [
+        {
+            "type": "error",
+            "message": "Number of reads for sample 14574-qiagen-indexset1-sp-lane1 was too low on lane 1, it was: 1.576 M",
+            "data": {
+                "lane": 1,
+                "number_of_samples": 2,
+                "sample_name": "14574-qiagen-indexset1-sp-lane1",
+                "sample_reads": 1.576102,
+                "threshold": 121.875
+            }
+        },
+        {
+            "type": "error",
+            "message": "Number of reads for sample CD-5678-Zymo-IndexSet1-SP-Lane1 was too low on lane 1, it was: 0.561 M",
+            "data": {
+                "lane": 1,
+                "number_of_samples": 2,
+                "sample_name": "CD-5678-Zymo-IndexSet1-SP-Lane1",
+                "sample_reads": 0.561236,
+                "threshold": 121.875
+            }
+        },
+        {
+            "type": "error",
+            "message": "Number of reads for sample 14574-Qiagen-IndexSet1-SP-Lane2 was too low on lane 2, it was: 1.568 M",
+            "data": {
+                "lane": 2,
+                "number_of_samples": 2,
+                "sample_name": "14574-Qiagen-IndexSet1-SP-Lane2",
+                "sample_reads": 1.568445,
+                "threshold": 121.875
+            }
+        },
+        {
+            "type": "error",
+            "message": "Number of reads for sample CD-5678-Zymo-IndexSet1-SP-Lane2 was too low on lane 2, it was: 0.562 M",
+            "data": {
+                "lane": 2,
+                "number_of_samples": 2,
+                "sample_name": "CD-5678-Zymo-IndexSet1-SP-Lane2",
+                "sample_reads": 0.562383,
+                "threshold": 121.875
+            }
+        }
+    ],
+    "UndeterminedPercentageHandler": [
+        {
+            "type": "error",
+            "message": "The percentage of undetermined indexes was too high on lane 1, it was: 99.60%",
+            "data": {
+                "lane": 1,
+                "percentage_undetermined": 99.59859508109358,
+                "threshold": 9,
+                "computed_threshold": 9.0,
+                "phix_on_lane": 0.0
+            }
+        },
+        {
+            "type": "error",
+            "message": "The percentage of undetermined indexes was too high on lane 2, it was: 99.60%",
+            "data": {
+                "lane": 2,
+                "percentage_undetermined": 99.59865181706692,
+                "threshold": 9,
+                "computed_threshold": 9.0,
+                "phix_on_lane": 0.0
+            }
+        }
+    ],
+    "run_summary": {
+        "instrument_and_reagent_type": "novaseq_SP",
+        "read_length": "36",
+        "handlers": [
+            {
+                "name": "ClusterPFHandler",
+                "warning": 325,
+                "error": "unknown"
+            },
+            {
+                "name": "Q30Handler",
+                "warning": 90,
+                "error": "unknown"
+            },
+            {
+                "name": "ErrorRateHandler",
+                "allow_missing_error_rate": false,
+                "warning": 1,
+                "error": "unknown"
+            },
+            {
+                "name": "ReadsPerSampleHandler",
+                "warning": "unknown",
+                "error": 243.75
+            },
+            {
+                "name": "UndeterminedPercentageHandler",
+                "warning": "unknown",
+                "error": 9
+            },
+            {
+                "name": "UnidentifiedIndexHandler",
+                "significance_threshold": 1,
+                "white_listed_indexes": [
+                    ".*N.*",
+                    "G{6,}"
+                ]
+            }
+        ]
+    }
+}
